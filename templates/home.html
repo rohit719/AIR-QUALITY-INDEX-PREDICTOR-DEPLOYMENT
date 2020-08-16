@@ -1,0 +1,72 @@
+
+"""
+Created on Thu Aug  6 20:11:42 2020
+
+@author: Rohit Mehta
+"""
+
+
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title> AQI </title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  
+</head>
+
+<body style = "background-color : #dddddd;text-align : center;">
+ <div class="login">
+	<h1>Predict Air Quality Index</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<label for="T">Average temperature (°C) :</label>
+    	<input type="text" name="T" id="T" required="required" />
+    	<br>
+    	<br>
+    	<label for="TM">Maximum temperature (°C) :</label>
+        <input type="text" name="TM" id="TM"  required="required" />
+		<br>
+		<br>
+		<label for="Tm">Minimum temperature (°C):</label>
+		<input type="text" name="Tm" id="Tm"  required="required" />
+        <br>
+        <br>
+        <label for="SLP">Atmospheric pressure at sea level (hPa) :</label>
+        <input type="text" name="SLP" id= "SLP"  required="required" />
+        <br>
+        <br>
+        <label for="H">Average relative humidity (%):</label>
+        <input type="text" name="H" id="H" required="required" />
+        <br>
+        <br>
+        <label for="W">Average visibility (Km):</label>
+        <input type="text" name="W" id="W" required="required" />
+        <br>
+        <br>
+        <label for="V">Average wind speed (Km/h) :</label>
+        <input type="text" name="V" id="V" required="required" />
+        <br>
+        <br>
+        <label for="VM">Maximum sustained wind speed (Km/h):</label>
+        <input type="text" name="VM" id="VM" required="required" />
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
